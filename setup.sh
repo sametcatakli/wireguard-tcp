@@ -22,6 +22,14 @@ fi
 mkdir -p ~/wireguard-udp2raw
 cd ~/wireguard-udp2raw
 
+git clone https://github.com/dogbutcat/docker-udp2raw.git
+
+cd docker-udp2raw
+
+docker build
+
+cd ..
+
 # --- Write docker-compose.yml ---
 cat > docker-compose.yml <<EOF
 version: '3.8'
