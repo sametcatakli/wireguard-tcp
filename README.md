@@ -22,6 +22,7 @@ Clone this repository and run the setup script:
 ```bash
 git clone https://github.com/sametcatakli/wireguard-tcp.git
 cd wireguard-tcp
+chmod +x setup.sh
 bash setup.sh
 ```
 
