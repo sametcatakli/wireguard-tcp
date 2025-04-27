@@ -3,10 +3,18 @@
 set -e
 
 # --- Configuration ---
-WIREGUARD_PORT=51820
-UDP2RAW_PORT=4096
-PASSWORD="your_secure_password"
-SERVER_PUBLIC_IP="your.server.ip"
+prompt() {
+  local prompt_message=$1
+  local default_value=$2
+  read -p "$prompt_message [$default_value]: " input
+  echo "${input:-$default_value}"
+}
+
+WIREGUARD_PORT=$(prompt "Enter the wireguard port" "51820")
+UDP2RAW_PORT=$(prompt "Enter the udp2raw port" "4096")
+PASSWORD=$(prompt "Enter your new password" "Tesr123*")
+SERVER_PUBLIC_IP=$(prompt "Enter your public IP" "81.243.181.17")
+
 
 # --- Installation of Docker if not present ---
 if ! command -v docker &> /dev/null
