@@ -25,9 +25,7 @@ cd ~/wireguard-udp2raw
 git clone https://github.com/dogbutcat/docker-udp2raw.git
 
 cd docker-udp2raw
-
-docker build
-
+docker build -t udp2raw .
 cd ..
 
 # --- Write docker-compose.yml ---
@@ -36,7 +34,7 @@ version: '3.8'
 
 services:
   udp2raw-server:
-    image: ghcr.io/synox/docker-udp2raw:latest
+    image: udp2raw
     container_name: udp2raw-server
     restart: unless-stopped
     network_mode: "host"
